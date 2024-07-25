@@ -1,3 +1,4 @@
+import { log } from 'console';
 //! Array method
 //* array mean collect of diff value
 // let arr = ['bilal',55,true]
@@ -19,8 +20,10 @@
 // let arr = new Array('Bilal', 'David', 'Animal', 'Plant')
 // log(arr)
 //* by array method
-// let arr:number []= Array.from([1,2,3,4,5,6])
+// let arr:number []= Array.from([1,2,3,4,5,5,6])
 // log(arr)
+// let arr= new Set([1,2,3,4,5,5])
+// console.log(Array.from(arr));
 // let c: string[] = Array.from('Akmal')
 // log(c)
 // let n = Array.from([1, 2, 3, 4], x => x + 1)
@@ -62,18 +65,36 @@
 //? toString
 // let colorName = ['red','yellow','green','black','brown']
 // log(colorName)
-// log(colorName.toString())
+// log(colorName.toString())  //? array convert into string
 //? delete
 // delete colorName[4]
 // log(colorName)
-//? slice
-// let colorName = ['red','yellow','green','black','brown']
-// log(colorName.slice(3,5))
+//? index value ko replace kr sakhty
+// colorName[0]  = "YellowGreen"
+// console.log(colorName);
+// ? slice
+// let colorName = [
+//   'red',
+//   'yellow',
+//   'green',
+//   'black',
+//   'brown',
+//   'yellowGreen',
+//   'Grey',
+//   'brownGrey'
+// ]
 // log(colorName.slice(3))
-//?splice()
+// log(colorName.slice(3,5))
+// log(colorName.slice(2,3))
+// ? splice()
 // let b = colorName.splice(2,3,'white')
 // log(b)
 // log(colorName)
+// let b = colorName.splice(1,0,'white')
+// let b = colorName.splice(1,0,'white')
+// let b = colorName.splice(0,0,'white')
+// log(b)
+// console.log(colorName);
 //? length
 // let len = [1,2,3,4,5,6,7,8,9]
 // log(len.length)
@@ -86,38 +107,55 @@
 // let num = [3, 5, 62, 2, 0, 2, 4]
 // num.sort(compare)
 // log(num)
+// console.log(num.sort());
 //? fill(value,start,end)
 // let a = [1, 2, 3, 4, 5]
 // log(a.fill(3, 2, 5))
 // log(a.fill(5, 2, 5))
-//? join()
-// let a1 = ["bilal"]
+// console.log(a.fill(1));
+// console.log(a.fill(2,1));
+// console.log(a.fill(2,1,2));
+// ? concat()
+// let a1 = ['bilal']
 // let a2 = ['hussain']
-// let a3= ['brother']
-// log(a1.concat(a2,a3))
+// let a3 = ['brother']
+// log(a1.concat(a2, a3))
+// log(a1.concat(a2, a3).join('-'))
+//? Join
+// let numbers = [1,2,3,4]
+// console.log(numbers.join(" "));
+// console.log(numbers.join("-"));
 //? Indexof(search,start) he indexOf() method searches the array for searchElement and returns the index of the first match.
 // let indexRe = [1,2,3,2,23,5,6,5,6]
-// log(indexRe.indexOf(2))
+// log(indexRe.indexOf(1))
+// log(indexRe.indexOf(2,2))
 //? lastIndexof()  back
 // let lIndexOf = [1,2,3,4,5,6,7,8,910,11,22,33,44,55,66,7,78]
-// log(lIndexOf.lastIndexOf(33,15)) //15 move backward
 // log(lIndexOf.lastIndexOf(93))
+// log(lIndexOf.lastIndexOf(33,15)) //15 move backward
 //? Array of() convert into array
 // let a = Array.of(1,2,3,4,5)
 // let b = Array.of('cat','dog','camel')
 // log(a)
 // log(b)
-//? findIndex(0)
+//? find()
 // let lIndexOf:number [] = [1, 2, 3, 4, 5, 6, 7, 8, 910, 11, 22, 33, 44, 55, 66, 7, 78]
 // let b = lIndexOf.find(ele => ele == 55)
 // log(b)
-//? findIndex
+//? findIndex()
+// let lIndexOf:number [] = [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 22, 33, 44, 55, 66, 7, 78]
 // let c = lIndexOf.findIndex((ele, index) => index >= 6 && ele == 55)
 // log(c)
+// let f = lIndexOf.findIndex((ele:number)=> ele > 6) // 6 index
+// let f = lIndexOf.findIndex((ele:number)=> ele >= 6) // 5 index
+// console.log(f);
 //?include
 // log(lIndexOf.includes(55))
 // log(lIndexOf.includes(155))
 //? max()
+// let lIndexOf: number[] = [
+//   1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 22, 33, 44, 55, 66, 7, 78
+// ]
 // let max = Math.max(...lIndexOf)
 // log(max)
 //? min()
@@ -175,13 +213,18 @@
 // let forEach = [1, 2, 3, 4, 5, 6]
 // log(forEach)
 // forEach.forEach(ele => log(ele ** 2))
+// forEach.forEach(ele => log(ele + 2))
 //? array.from => "bilal" string convert into array split ['b','i','l','a','l']
 // let a = 'bilal'
 // let b = Array.from(a)
 // log(b)
 //? for of
+let forEach = [1, 2, 3, 4, 5, 6];
 // for (const item of forEach) {
 //   log(item * 3)
+// }
+// for (const item of forEach) {
+//   console.log(item)
 // }
 //? for in => key value datha hy let forEach = [0:1, 1:2, 2:3, 3:4, 4:5, 5:6]
 // for (const key in forEach) {
@@ -192,13 +235,13 @@
 // }
 //? map,filter and reduce high order
 //? Map(value,index,array) => new array return
-// let a = [1, 23, 4, 5, 77]
-// let b = a.map((value, index, array) => {
-//   log(value, index, array)
-//   return value + 1
-//   return index
-// })
-// log(b)
+let a = [1, 23, 4, 5, 77];
+let b = a.map((value, index) => {
+    log(value, index);
+    return value + 1;
+    return index;
+});
+log(b);
 //? filter()=> return array
 // let a1 = [2, 4, 5, 6, 6, 5, 4, 554, 43, 2, 4, 223, 4, 2, 44, 33, 22]
 // let b1 = a1.filter(ele => ele < 66)
@@ -230,13 +273,13 @@
 // let names = [['java'], ['python'], ['js'], ['vuejs']]
 // log(names.flatMap(x => x))
 //? some() => check if any of the element in an array pass test
-// let age = [12, 34, 18, 66, 19, 20]
+// let age = [12, 4, 14, 6, 9, 0]
 // let b = age.some(checkAge)
 // function checkAge (age:number) {
 //   return age >= 18
 // }
 // log(b)
-// log(age.some(ele => ele >= 18))
+// log(age.some(ele => ele > 18))
 // log(
 //   age.some(ele => {
 //     if (ele % 2 == 0) {
@@ -255,10 +298,12 @@
 // }
 // log(age.every(checkAge)) //false
 //? The entries() =>  method of Array instances returns a new array iterator object that contains the key/value pairs for each index in the array.
-const array1 = ['a', 'b', 'c'];
-const iterator1 = array1.entries();
-console.log(iterator1.next().value);
+// const array1 = ['a', 'b', 'c']
+// const iterator1 = array1.entries()
+// console.log(iterator1.next().value);
 // Expected output: Array [0, "a"]
-console.log(iterator1.next().value);
-export {};
+// console.log(iterator1.next().value);
 // Expected output: Array [1, "b"]
+// for (const iterator of iterator1) {
+//   console.log(iterator)
+// }
